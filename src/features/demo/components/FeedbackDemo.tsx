@@ -23,14 +23,14 @@ export default function FeedbackDemo() {
       <H2>Feedback Demo</H2>
       <SectionContainer title="Alerts & Indicators">
         <div className="space-y-3">
-          <Alert variant="info" title="Heads up" description="Informational message" />
-          <Alert variant="success" title="Done" description="Operation succeeded" />
-          <Alert variant="error" title="Error" description="Something went wrong" />
+          <Alert variant="info" title="Heads up">Informational message</Alert>
+          <Alert variant="success" title="Done">Operation succeeded</Alert>
+          <Alert variant="error" title="Error">Something went wrong</Alert>
           <div className="flex items-center gap-4">
             <BellBadge count={3} />
-            <StatusIndicator status="success" />
-            <StatusIndicator status="warning" />
-            <StatusIndicator status="error" />
+            <StatusIndicator status="online" />
+            <StatusIndicator status="pending" />
+            <StatusIndicator status="offline" />
           </div>
         </div>
       </SectionContainer>
@@ -41,7 +41,7 @@ export default function FeedbackDemo() {
             <Skeleton className="h-6 w-48" />
           </div>
           <ProgressBar value={60} />
-          <ProgressStepper steps={["Start", "Process", "Finish"]} current={1} />
+          <ProgressStepper steps={[{ label: "Start" }, { label: "Process" }, { label: "Finish" }]} current={1} />
         </div>
       </SectionContainer>
       <SectionContainer title="Empty & Validation">

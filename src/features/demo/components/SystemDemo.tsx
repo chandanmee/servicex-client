@@ -12,7 +12,7 @@ import {
   PortalWrapper
 } from "@/components/system";
 
-function Boom() {
+function Boom(): React.ReactElement {
   throw new Error("boom");
 }
 

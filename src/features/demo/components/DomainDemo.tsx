@@ -90,7 +90,15 @@ export default function DomainDemo() {
       </SectionContainer>
       <SectionContainer title="Assignment & Collaboration">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <UserAssignmentPicker users={people} value={users} multiple onChange={setUsers} />
+          <UserAssignmentPicker
+            users={people}
+            value={users}
+            multiple
+            onChange={(val) => {
+              const next = Array.isArray(val) ? val : val != null ? [val] : [];
+              setUsers(next);
+            }}
+          />
           <CommentThread comments={comments} onSubmit={() => {}} />
         </div>
       </SectionContainer>

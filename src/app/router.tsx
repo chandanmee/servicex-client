@@ -11,9 +11,34 @@ import NavigationDemo from "../features/demo/components/NavigationDemo";
 import OverlayDemo from "../features/demo/components/OverlayDemo";
 import SystemDemo from "../features/demo/components/SystemDemo";
 
+import AppLayout from "@/components/layout/AppLayout";
+import AuthLayout from "@/components/layout/AuthLayout";
+import ProtectedRoute from "@/components/system/ProtectedRoute";
+import HomePage from "@/features/dashboard/pages/HomePage";
+
 export const router = createBrowserRouter([
-  { path: "/", element:  <LoginPage /> },
-  { path: "/login", element: <LoginPage /> },
+  {
+    path: "/",
+    element: (
+    <ProtectedRoute>
+        <AppLayout />
+      </ProtectedRoute>
+    ),
+      children: [
+      {
+        index: true,
+        element: <HomePage />,
+      },
+    ],
+  },
+  {
+    path: "/login",
+    element: (
+      <AuthLayout>
+        <LoginPage />
+      </AuthLayout>
+    ),
+  },
   { path: "/ui", element: <UiDemo /> },
   { path: "/demo/data", element: <DataDisplayDemo /> },
   { path: "/demo/domain", element: <DomainDemo /> },
@@ -22,5 +47,13 @@ export const router = createBrowserRouter([
   { path: "/demo/layout", element: <LayoutDemo /> },
   { path: "/demo/navigation", element: <NavigationDemo /> },
   { path: "/demo/overlay", element: <OverlayDemo /> },
-  { path: "/demo/system", element: <SystemDemo /> }
+  { path: "/demo/system", element: <SystemDemo /> },
+  {
+    path: "/demo",
+    element: (
+      <AppLayout>
+        <UiDemo />
+      </AppLayout>
+    ),
+  },
 ]);

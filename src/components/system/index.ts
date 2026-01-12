@@ -6,3 +6,4 @@ export { default as ErrorBoundary } from "./ErrorBoundary";
 export { default as SuspenseLoader } from "./SuspenseLoader";
 export { default as KeyboardShortcutHandler } from "./KeyboardShortcutHandler";
 export { default as PortalWrapper } from "./PortalWrapper";
+export { default as AuthLoader } from "./AuthLoader";
